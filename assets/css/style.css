@@ -2372,7 +2372,7 @@ footer {
 
   /**
    * #PRODUCT 
-   */
+  */
 
   .product-container .container {
     position: relative;
@@ -2456,20 +2456,17 @@ footer {
   }
 
 
-
   /**
    * #BLOG
-   */
+  */
 
   .blog-card { min-width: calc(33.33% - 20px); }
 
   .blog-title { --fs-5: 1rem; }
 
-
-
   /**
    * #FOOTER
-   */
+  */
 
   .footer-nav-list {
     min-width: calc(20% - 16px);
@@ -2481,7 +2478,6 @@ footer {
   .footer-bottom { margin-bottom: 0; }
 
 }
-
 
 
 
