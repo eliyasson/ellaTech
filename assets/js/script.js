@@ -88,26 +88,3 @@ for (let i = 0; i < accordionBtn.length; i++) {
 }
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const video = document.getElementById("autoPlayVideo");
-
-  // Create an intersection observer
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // When the video is in view, play it
-        video.play().catch(error => {
-          console.error("Video playback failed:", error);
-        });
-      } else {
-        // Pause the video when it goes out of view
-        video.pause();
-      }
-    });
-  }, {
-    threshold: 0.5 // Video will play when 50% of it is in view
-  });
-
-  // Observe the video element
-  observer.observe(video);
-});
