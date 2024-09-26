@@ -88,3 +88,26 @@ for (let i = 0; i < accordionBtn.length; i++) {
 }
 
 
+ // Modal functionality
+    window.onload = function () {
+      var modal = document.getElementById("screenshotModal");
+      var addToCartButton = document.querySelector("button.normal");
+      var closeModal = document.getElementsByClassName("close")[0];
+
+      // Add To Cart button click event to display modal
+      addToCartButton.onclick = function () {
+        modal.style.display = "block";
+      };
+
+      // Close modal when clicking on (x)
+      closeModal.onclick = function () {
+        modal.style.display = "none";
+      };
+
+      // Close modal when clicking outside the modal content
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      };
+    };

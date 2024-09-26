@@ -15,6 +15,60 @@
   <link rel="stylesheet" href="./assets/css/style-prefix.css">
   <link rel="stylesheet" href="style.css">
 
+  <script>
+    function loadComponent(component, elementId) {
+      fetch(component)
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById(elementId).innerHTML = data;
+        });
+    }
+
+    window.onload = function () {
+      loadComponent('header.html', 'header');
+      loadComponent('footer.html', 'footer');
+      loadComponent('mainProduct.html', 'mainProduct');
+    };
+  </script>
+   <style>
+    /* Quick styling to ensure smooth modal display */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4); /* Black with transparency */
+      transition: opacity 0.3s ease;
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 500px;
+      overflow: hidden;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      cursor: pointer;
+    }
+  </style>
+
   <!--
     - google font link
   -->
@@ -30,498 +84,12 @@
 
   <div class="overlay" data-overlay></div>
 
-  <!--
-    - MODAL
-  -->
-
-
-
-
-
-
-  <!--
-    - NOTIFICATION TOAST
-  -->
-
-
-
-
-
 
 
   <!--
     - HEADER
   -->
-
-  <header>
-
-    <div class="header-top">
-
-      <div class="container">
-
-        <ul class="header-social-container">
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="#" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-        <div class="header-alert-news">
-          <p>
-            <b>Free Shipping</b>
-            This Week Order Over - €200
-          </p>
-        </div>
-
-        <div class="header-top-actions">
-
-          <select name="currency">
-            <option value="eur">EUR &euro;</option>
-            <option value="usd">USD &dollar;</option>
-          </select>
-
-          <select name="language">
-
-            <option value="en-US">English</option>
-            <option value="fin">Finnish</option>
-            <option value="amh">አማርኛ</option>
-
-          </select>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="header-main">
-
-      <div class="container">
-
-        <a href="#" class="header-logo">
-          <img src="./assets/images/logo/logo.png" alt="Ella's logo" width="100" height="auto">
-        </a>
-
-  
-
-        <div class="header-user-actions">
-
-          <button class="action-btn">
-            <ion-icon name="person-outline"></ion-icon>
-          </button>
-
-          <button class="action-btn">
-            <ion-icon name="heart-outline"></ion-icon>
-            <span class="count">0</span>
-          </button>
-
-          <button class="action-btn">
-            <ion-icon name="bag-handle-outline"></ion-icon>
-            <span class="count">0</span>
-          </button>
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <nav class="desktop-navigation-menu">
-
-      <div class="container">
-
-        <ul class="desktop-menu-category-list">
-
-          <li class="menu-category">
-            <a href="#" class="menu-title">Home</a>
-          </li>
-
-          <li class="menu-category">
-            <a href="#" class="menu-title">Categories</a>
-
-            <div class="dropdown-panel">
-
-              <ul class="dropdown-panel-list">
-
-                <li class="menu-title">
-                  <a href="#">Electronics</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Desktop</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Laptop</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Camera</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Tablet</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Monitor</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="./assets/images/services/1.png" alt="service" width="250"
-                      height="119">
-                  </a>
-                </li>
-
-              </ul>
-
-              <ul class="dropdown-panel-list">
-
-                <li class="menu-title">
-                  <a href="#">Monitor</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">HP</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Acer</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Samsung</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Dell</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Asus</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="./assets/images/services/2.png" alt="Driving" width="250" height="119">
-                  </a>
-                </li>
-
-              </ul>
-
-              <ul class="dropdown-panel-list">
-
-                <li class="menu-title">
-                  <a href="#">Services</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Moving services</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Driving Teacher</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Maintenance</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Graphics Design</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Web design</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="./assets/images/services/3.png" alt="Maintenance" width="250" height="119">
-                  </a>
-                </li>
-
-              </ul>
-
-              <ul class="dropdown-panel-list">
-
-                <li class="menu-title">
-                  <a href="#">Electronics</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Smart Watch</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Smart TV</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Keyboard</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Mouse</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">Microphone</a>
-                </li>
-
-                <li class="panel-list-item">
-                  <a href="#">
-                    <img src="./assets/images/services/4.png" alt="moving service" width="250" height="119">
-                  </a>
-                </li>
-
-              </ul>
-
-            </div>
-          </li>
-
-          <li class="menu-category">
-            <a href="#" class="menu-title">Services</a>
-
-            <ul class="dropdown-list">
-
-              <li class="dropdown-item">
-                <a href="#">Driving lesson</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Maintenance</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Graphics Design</a>
-              </li>
-              <li class="dropdown-item">
-                <a href="#">Web development</a>
-              </li>
-
-              <li class="dropdown-item">
-                <a href="#">Moving Services</a>
-              </li>
-
-            </ul>
-          </li>
-
-          
-
-          <li class="menu-category">
-            <a href="#" class="menu-title">Offers</a>
-          </li>
-
-          <li class="menu-category">
-            <a href="#" class="menu-title">Blog</a>
-          </li>
-
-         
-
-        </ul>
-
-      </div>
-
-    </nav>
-
-    <div class="mobile-bottom-navigation">
-
-      <button class="action-btn" data-mobile-menu-open-btn>
-        <ion-icon name="menu-outline"></ion-icon>
-      </button>
-
-      <button class="action-btn">
-        <ion-icon name="bag-handle-outline"></ion-icon>
-
-        <span class="count">0</span>
-      </button>
-
-      <button class="action-btn">
-        <ion-icon name="home-outline"></ion-icon>
-      </button>
-
-      <button class="action-btn">
-        <ion-icon name="heart-outline"></ion-icon>
-
-        <span class="count">0</span>
-      </button>
-
-      <button class="action-btn" data-mobile-menu-open-btn>
-        <ion-icon name="grid-outline"></ion-icon>
-      </button>
-
-    </div>
-
-    <nav class="mobile-navigation-menu  has-scrollbar" data-mobile-menu>
-
-      <div class="menu-top">
-        <h2 class="menu-title">Menu</h2>
-
-        <button class="menu-close-btn" data-mobile-menu-close-btn>
-          <ion-icon name="close-outline"></ion-icon>
-        </button>
-      </div>
-
-      <ul class="mobile-menu-category-list">
-
-        <li class="menu-category">
-          <a href="#" class="menu-title">Home</a>
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Laptops</p>
-
-          </button>
-
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Monitor</p>
-
-          </button>
-
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Maintenance</p>
-
-          </button>
-          
-          </ul>
-
-        </li>
-
-        <li class="menu-category">
-
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Services</p>
-
-          </button>
-
-
-        </li>
-
-        <li class="menu-category">
-          <a href="#" class="menu-title">Blog</a>
-        </li>
-
-        
-      </ul>
-
-      <div class="menu-bottom">
-
-        <ul class="menu-category-list">
-
-          <li class="menu-category">
-
-            <button class="accordion-menu" data-accordion-btn>
-              <p class="menu-title">Language</p>
-
-              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
-            </button>
-
-            <ul class="submenu-category-list" data-accordion>
-
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">English</a>
-              </li>
-
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">Finnish</a>
-              </li>
-
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">አማርኛ</a>
-              </li>
-
-            </ul>
-
-          </li>
-
-          <li class="menu-category">
-            <button class="accordion-menu" data-accordion-btn>
-              <p class="menu-title">Currency</p>
-              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
-            </button>
-
-            
-            
-            <ul class="submenu-category-list" data-accordion>
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">EUR &euro;</a>
-              </li>
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">USD &dollar;</a>
-              </li>
-
-             
-            </ul>
-            <li class="submenu-category"></li>
-              <a href="#" class="submenu-title">EUR &euro;</a>
-            </li>
-          </li>
-
-        </ul>
-
-        <ul class="menu-social-container">
-
-          <li>
-            <a href="https://www.facebook.com/jesus.islord99/?locale=ms_MY" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-  
-
-          <li>
-            <a href="https://www.instagram.com/eliiyas_t?igsh=aXA2bGxkcmg4amt3" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-          <li>
-            <a href="https://www.linkedin.com/in/eliyas-kassaye/" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </nav>
-
-  </header>
-
+  <div id="header"></div>
 
 
 
@@ -548,180 +116,79 @@
   
     <div class="single-pro-details">
       <h6>Home / Laptops</h6>
-      <h4>HP Pavilion 15 – Performance Laptop</h4>
+      <h4>HP Probook 650 G4, i3-8130U/8GB/256SSD/15.6” Win11</h4>
       <h2>€149</h2>
-  
-      <select>
-        <option>Select Storage</option>
-        <option>256GB SSD</option>
-        <option>512GB SSD</option>
-        <option>1TB SSD</option>
-      </select>
-  
-      <input type="number" value="1" min="1">
-      <button class="normal">Add To Cart</button>
-  
-      <h4>Product Details</h4>
-      <span>
-        The HP Pavilion 15 is equipped with the latest Intel Core i7 processor and 16GB RAM, making it perfect for
-        multitasking, gaming, and productivity. With its stunning FHD display and 512GB SSD storage, this laptop is 
-        designed for performance and durability.
-      </span>
+    
+      <div class="options">
+        <select>
+          <option>Select Storage</option>
+          <option>256GB SSD</option>
+        </select>
+    
+        <input type="number" value="1" min="1">
+    
+        <button class="normal">Add To Cart</button>
+      </div>
+    
+      <div class="product-details">
+        <h4>Product Details</h4>
+        <p>
+          <strong>HP ProBook 650 G4</strong> - Powerful and Stylish Laptop
+        </p>
+        <p><strong>Specifications:</strong></p>
+        <ul>
+          <li>Processor: Intel Core i3-8130U, 2.20 GHz</li>
+          <li>Memory: 8 GB DDR4 SDRAM</li>
+          <li>Storage: 256 GB M.2 NVMe SSD</li>
+          <li>Graphics: Intel UHD Graphics 620</li>
+          <li>Display: 15.6” Full HD (1920x1080)</li>
+          <li>Operating System: Windows 11 Pro</li>
+        </ul>
+    
+        <p><strong>Connections:</strong></p>
+        <ul>
+          <li>HDMI, VGA</li>
+          <li>2 x USB 3.1, 1 x USB-C</li>
+          <li>RJ45 (Ethernet), WLAN, Bluetooth</li>
+          <li>Headphone and microphone ports</li>
+          <li>SD card reader</li>
+          <li>Webcam</li>
+        </ul>
+    
+        <p><strong>Additional Features:</strong></p>
+        <ul>
+          <li>Excellent battery life</li>
+          <li>Lightweight and durable design</li>
+          <li>Perfect for students, office work, or home use</li>
+        </ul>
+      </div>
     </div>
+
+    <!-- Modal Section -->
+    <div id="screenshotModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Thank you for your interest!</h2>
+        <p>Please take a screenshot of this page and send it to us:</p>
+        <ul>
+          <li><strong>Phone Number:</strong> 0402221111</li>
+          <li><strong>Instagram:</strong> <a href="https://instagram.com/aaaaa" target="_blank">@aaaaa</a></li>
+        </ul>
+        <p>We will process your order as soon as we receive your message.</p>
+      </div>
+    </div>
+
   </section>
-  
 
-<section id="feature">
-    <h1 style="color: white;">Featured Items</h1>
-</section>
-
-<section id="feature" class="section1">
-    <div class="pro">
-        <img src="./assets/images/products/hp5.jpg" alt="">
-        <h5>Buy me, am the best</h5>
-        <h4>₦8,500.00</h4>
-    </div>
-    <div class="pro">
-        <img src="./assets/images/products/hp5.jpg" alt="">
-        <h5>Buy me, am the best</h5>
-        <h4>₦7,500.00</h4>
-    </div>
-    <div class="pro">
-        <img src="./assets/images/products/hp5.jpg" alt="">
-        <h5>Buy me, am the best</h5>
-        <h4>₦5,000.00</h4>
-    </div>
-    <div class="pro">
-        <img src="./assets/images/products/hp5.jpg" alt="">
-        <h5>Buy me, am the best</h5>
-        <h4>₦4,500.00</h4>
-    </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-<!--
+  <!--
     - FOOTER
   -->
 
-  <footer>
+  <div id="footer"></div>
 
-   
-
-    <div class="footer-nav">
-
-      <div class="container">
-
-
-        <ul class="footer-nav-list">
-
-          <li class="footer-nav-item">
-            <h2 class="nav-title">Contact</h2>
-          </li>
-
-          <li class="footer-nav-item flex">
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <address class="content">
-              Helsinki Malmikartanon
-            </address>
-          </li>
-
-          <li class="footer-nav-item flex">
-            <div class="icon-box">
-              <ion-icon name="call-outline"></ion-icon>
-            </div>
-
-            <a href="tel:+607936-8058" class="footer-nav-link">040 5390 711</a>
-          </li>
-
-          <li class="footer-nav-item flex">
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <a href="mailto:example@gmail.com" class="footer-nav-link">eliyasson1199@gmail.com</a>
-          </li>
-
-        </ul>
-
-        <ul class="footer-nav-list">
-
-          <li class="footer-nav-item">
-            <h2 class="nav-title">Follow Us</h2>
-          </li>
-
-          <li>
-            <ul class="social-link">
-
-              <li class="footer-nav-item">
-                <a href="#" class="footer-nav-link">
-                  <ion-icon name="logo-facebook"></ion-icon>
-                </a>
-              </li>
-
-              <li class="footer-nav-item">
-                <a href="#" class="footer-nav-link">
-                  <ion-icon name="logo-twitter"></ion-icon>
-                </a>
-              </li>
-
-              <li class="footer-nav-item">
-                <a href="#" class="footer-nav-link">
-                  <ion-icon name="logo-linkedin"></ion-icon>
-                </a>
-              </li>
-
-              <li class="footer-nav-item">
-                <a href="#" class="footer-nav-link">
-                  <ion-icon name="logo-instagram"></ion-icon>
-                </a>
-              </li>
-
-            </ul>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </div>
-
-    <div class="footer-bottom">
-
-      <div class="container">
-
-        
-
-        <p class="copyright">
-          Copyright &copy; <a href="#">Eliyas</a> all rights reserved.
-        </p>
-
-      </div>
-
-    </div>
-
-  </footer>
+  <!--
+    - FOOTER
+  -->
 
 
 
@@ -748,6 +215,47 @@
     smallimg[3].onclick = function() {
         MainImg.src = smallimg[3].src;    
     }
+</script>
+
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+      // Image switching functionality
+      const MainImg = document.getElementById("MainImg");
+      const smallimg = document.getElementsByClassName("small-img");
+
+      for (let i = 0; i < smallimg.length; i++) {
+        smallimg[i].onclick = function () {
+          MainImg.src = smallimg[i].src;
+        };
+      }
+
+      // Modal functionality
+      const modal = document.getElementById("screenshotModal");
+      const addToCartButton = document.querySelector("button.normal");
+      const closeModal = document.querySelector(".close");
+
+      // Open modal when "Add to Cart" is clicked
+      addToCartButton.addEventListener("click", function () {
+        modal.style.display = "block";
+        modal.style.opacity = "1";  // Ensures immediate visibility
+      });
+
+      // Close modal when the close (x) is clicked
+      closeModal.addEventListener("click", function () {
+        modal.style.display = "none";
+        modal.style.opacity = "0";  // Ensures smooth closing
+      });
+
+      // Close modal if clicking outside the modal content
+      window.addEventListener("click", function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+    });
+
+
+
 </script>
 
   <!--
