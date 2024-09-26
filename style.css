@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.section1 {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 80px;
+    flex-wrap: wrap;
+  }
+
+/* Product Image Section */
+.single-pro-image {
+    flex-basis: 45%;
+    text-align: center;
+  }
+  
+  .single-pro-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .single-pro-image img:hover {
+    transform: scale(1.05);
+  }
+  
+  .small-img-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .small-img-col {
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .small-img-col img {
+    width: 80px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .small-img-col img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Product Details Section */
+  .single-pro-details {
+    flex-basis: 45%;
+  }
+  
+  .single-pro-details h6 {
+    color: #888;
+    margin-bottom: 10px;
+  }
+  
+  .single-pro-details h4 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+  
+  .single-pro-details h2 {
+    color: #188173;
+    margin-bottom: 20px;
+  }
+  
+  .single-pro-details select,
+  input[type="number"] {
+    padding: 10px;
+    margin: 10px 0;
+    width: 50%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button.normal {
+    padding: 12px 30px;
+    background-color: #188173;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button.normal:hover {
+    background-color: #155d5b;
+  }
+  
+  .single-pro-details span {
+    display: block;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 20px;
+  }
+  
+
+h1 {
+    font-size: 30px;
+    line-height: 64px;
+    color: #188173;
+}
+
+h2 {
+    font-size: 25px;
+    line-height: 54px;
+    color: #1a1a1a;
+}
+
+p {
+    font-size: 18px;
+    color: #1a1a1a;
+    margin: 15px 0 20px 0;
+}
+
+.section-m1 {
+    margin: 40px 0;
+}
+
+#feature {
+    background-color: #11122b;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+#feature .pro {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border: 1px solid #cce7d0;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.02);
+    margin: 15px 0;
+    transition: 0.2s ease;
+}
+
+#feature .pro:hover {
+    box-shadow: 20px 20px 30px rgba(0, 0, 0, 0.06);
+}
+
+#feature .pro img {
+    width: 100%;
+    border-radius: 20px;
+}
+
+#feature .pro h5 {
+    margin-top: 15px;
+    color: #fff;
+    text-align: center;
+}
+
+#feature .pro h4 {
+    margin-top: 10px;
+    color: #fff;
+    text-align: center;
+}
+
+#sho h1 {
+    text-align: center;
+    color: #cea135;
+    background-color: #11122b;
+}
+
+
+
+#about {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #11122b;
+    padding: 100px 100px;
+}
+
+#about h1 {
+    color: #cea135;
+}
+
+#about p {
+    color: #fff;
+    text-align: center;
+}
+
+
+
+@media (max-width: 799px) {
+    #navbar a {
+        margin-left: 10px;
+    }
+
+    #newsletter .form {
+        width: 80%;
+    }
+}
+
+@media (max-width: 477px) {
+    body {
+        width: 115%;
+    }
+
+    #navbar {
+        display: grid;
+        text-align: center;
+    }
+
+    #navbar a img {
+        width: 60%;
+    }
+
+    #hero {
+        text-align: center;
+    }
+
+    #newsletter .form {
+        width: 100%;
+    }
+
+    #contact-details {
+        flex-direction: column;
+       
+    }
+
+    #contact-details .details {
+        width: 100%;
+    }
+
+    #contact-details .map {
+        width: 100%;
+        height: 200px;
+    }
+
+    #form-details {
+        flex-direction: column;
+    }
+
+    #form-details form {
+        width: 120%;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    #cart-add {
+        flex-direction: column;
+    }
+
+    #coupon {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    #subtotal {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    #prodetails {
+        flex-direction: column;
+    }
+
+    #prodetails .single-pro-details {
+        width: 100%;
+    }
+}
