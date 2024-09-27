@@ -97,7 +97,7 @@ body {
   
   .small-img-group {
     display: flex;
-    border: 15px;
+    
     justify-content: space-between;
     margin-top: 10px;
   }
@@ -107,7 +107,7 @@ body {
     height: 80px;
     object-fit: cover;
     cursor: pointer;
-
+    margin: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
   }
@@ -119,15 +119,15 @@ body {
   
   
   .single-pro-details {
-    background-color: #f9f9f9; /* Light background for better readability */
-    padding: 20px; /* Space inside the container */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    margin: 20px 0; /* Space below the details section */
+    background-color: #f9f9f9;
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0; 
 }
 
 .single-pro-details h6 {
-    font-size: 0.9em; /* Smaller font for breadcrumb */
+    font-size: 10px;
     color: #7f8c8d; /* Gray color for breadcrumb */
     margin-bottom: 10px; /* Space below breadcrumb */
 }
@@ -213,11 +213,12 @@ button.normal:hover {
 }
 
 .product-details li {
-    background: #f8f8f8; /* Light gray background for list items */
-    margin: 5px 0; /* Space between list items */
-    padding: 10px; /* Space inside list items */
-    border-left: 4px solid #e67e22; /* Left border for list items */
-    transition: background 0.3s; /* Transition for hover effect */
+    font-size: 12px;
+    background: #f8f8f8;
+    margin: 5px 0; 
+    padding: 10px;
+    border-left: 4px solid #e67e22;
+    transition: background 0.3s;
 }
 
 .product-details li:hover {
