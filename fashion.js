@@ -29,3 +29,18 @@ function linkAction()
 }
 
 navLink.forEach(n => n.addEventListener('click', linkAction))
+
+// Add event listener to all images with the "toggle-image" class
+document.querySelectorAll('.toggle-image').forEach(function(img) {
+    img.addEventListener('click', function() {
+        // Get the two images from the data-images attribute
+        let images = this.getAttribute('data-images').split(',');
+
+        // Swap the image src with the other image
+        if (this.src.includes(images[0])) {
+            this.src = images[1];
+        } else {
+            this.src = images[0];
+        }
+    });
+});

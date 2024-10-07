@@ -612,7 +612,7 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
   background: var(--bittersweet);
   color: var(--white);
   position: absolute;
-  top: 0;
+  top: 100px;
   right: 0;
   font-size: 12px;
   font-weight: var(--weight-500);
@@ -625,7 +625,7 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
 .mobile-navigation-menu {
   background: var(--white);
   position: fixed;
-  top: 0;
+  top: 110px;
   left: -100%;
   width: 100%;
   max-width: 320px;
