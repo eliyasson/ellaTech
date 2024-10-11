@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>EllaTech</title>
+ 
+    <link rel="stylesheet" href="./assets/css/style-prefix.css">
+    <link rel="stylesheet" href="main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script>
+        function loadComponent(component, elementId) {
+          fetch(component)
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById(elementId).innerHTML = data;
+            });
+        }
+    
+        window.onload = function () {
+          loadComponent('header.html', 'header');
+          loadComponent('footer.html', 'footer');
+          loadComponent('mainProduct.html', 'mainProduct');
+        };
+      </script>
+</head>
+<body>
+    <div class="header-main">
+       
+        <div class="header-logo">
+          <a href="index.html">
+            <img src="./assets/images/logo/logo2.png" alt="Ella's logo" width="100" height="auto">
+          </a>
+        </div>
+       </div>
+    <div class="overlay" data-overlay></div>
+
+  
+  
+    <header>
+  
+      <div class="mobile-bottom-navigation">
+  
+        <button class="action-btn" data-mobile-menu-open-btn>
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
+  
+        <button class="action-btn">
+          <ion-icon name="bag-handle-outline"></ion-icon>
+  
+          <span class="count">0</span>
+        </button>
+  
+        <button class="action-btn">
+          <ion-icon name="home-outline"></ion-icon>
+        </button>
+  
+        <button class="action-btn">
+          <ion-icon name="heart-outline"></ion-icon>
+  
+          <span class="count">0</span>
+        </button>
+  
+        <button class="action-btn" data-mobile-menu-open-btn>
+          <ion-icon name="grid-outline"></ion-icon>
+        </button>
+  
+      </div>
+  
+      <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu>
+  
+        <div class="menu-top">
+          <h2 class="menu-title">Menu</h2>
+      
+          <button class="menu-close-btn" data-mobile-menu-close-btn>
+            <ion-icon name="close-outline"></ion-icon>
+          </button>
+        </div>
+      
+        <ul class="mobile-menu-category-list">
+      
+          <li class="menu-category">
+            <a href="#" class="menu-title">Home</a>
+          </li>
+      
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Laptops</p>
+            </button>
+          </li>
+      
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Monitor</p>
+            </button>
+          </li>
+      
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Maintenance</p>
+            </button>
+          </li>
+      
+          <li class="menu-category">
+            <button class="accordion-menu" data-accordion-btn>
+              <p class="menu-title">Services</p>
+            </button>
+          </li>
+      
+          <li class="menu-category">
+            <a href="#" class="menu-title">Blog</a>
+          </li>
+      
+        </ul>
+      
+        <div class="menu-bottom">
+      
+          <ul class="menu-category-list">
+      
+            <li class="menu-category">
+              <button class="accordion-menu" data-accordion-btn>
+                <p class="menu-title">Language</p>
+                <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+              </button>
+      
+              <ul class="submenu-category-list" data-accordion>
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title">English</a>
+                </li>
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title">Finnish</a>
+                </li>
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title">አማርኛ</a>
+                </li>
+              </ul>
+            </li>
+      
+            <li class="menu-category">
+              <button class="accordion-menu" data-accordion-btn>
+                <p class="menu-title">Currency</p>
+                <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
+              </button>
+      
+              <ul class="submenu-category-list" data-accordion>
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title">EUR &euro;</a>
+                </li>
+                <li class="submenu-category">
+                  <a href="#" class="submenu-title">USD &dollar;</a>
+                </li>
+              </ul>
+            </li>
+      
+          </ul>
+      
+          <ul class="menu-social-container">
+            <li>
+              <a href="https://www.facebook.com/jesus.islord99/?locale=ms_MY" class="social-link">
+                <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/eliiyas_t?igsh=aXA2bGxkcmg4amt3" class="social-link">
+                <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/eliyas-kassaye/" class="social-link">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </a>
+            </li>
+          </ul>
+      
+        </div>
+      
+      </nav>
+      
+  
+    </header>
+    <!--
+      - HEADER
+    -->
+    
+    <section class="service-categories">
+        <h1 class="main-title"  id="typing-title"></h1>
+        <div class="categories-container">
+            <!-- First Category: Buy Laptops -->
+            <div class="category-box">
+                <a href="buy-laptops.html" class="category-link">
+                    <a href="main.html">
+                         <img src="./assets/images/services/5.png" alt="Buy Laptops" class="category-img">
+                    </a>
+                   
+                    <div class="category-info">
+                        <h3>Want to Buy Laptops?</h3>
+                        <a href="main.html">
+                            <button class="category-btn">Explore</button>
+                        </a>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Second Category: Moving Services -->
+            <div class="category-box">
+                <a href="moving.html" class="category-link">
+                    <img src="./assets/images/services/6.png" alt="Moving Services" class="category-img">
+                    <div class="category-info">
+                        <h3>Need Moving & Ride Services?</h3>
+                        <button class="category-btn">Learn More</button>
+                    </div>
+                </a>
+            </div>
+            <!--  Category: Moving Services -->
+            <div class="category-box">
+                <a href="fashion.html" class="category-link">
+                    <img src="./assets/images/services/cheery4.png" alt="Moving Services" class="category-img">
+                    <div class="category-info">
+                        <h3>Traditional Ethiopian wear</h3>
+                        <button class="category-btn">Show Now</button>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Third Category: Driving Exercises -->
+            <div class="category-box">
+                <a href="driving-exercises.html" class="category-link">
+                    <img src="./assets/images/services/3.png" alt="Driving Exercises" class="category-img">
+                    <div class="category-info">
+                        <h3>Want Driving Exercises?</h3>
+                        <button class="category-btn">Check it Out</button>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Fourth Category: Something Else -->
+            <div class="category-box">
+                <a href="something-else.html" class="category-link">
+                    <img src="./assets/images/blog/77.png" alt="Something Else" class="category-img">
+                    <div class="category-info">
+                        <h3>Looking for Maintenance?</h3>
+                        <button class="category-btn">Find Out</button>
+                    </div>
+                </a>
+            </div>
+          
+
+        </div>
+
+         
+    </section>
+
+     <!-- Other Services Section -->
+    <section class="other-services">
+      <h2 class="other-services-title">Other Services You Might Like</h2>
+      <div class="other-service-card">
+          <a href="consultation_services.html" class="other-service-link">
+              <div class="service-overlay">
+                  <h3 class="service-text">Explore Other Services</h3>
+              </div>
+              <img src="./assets/images/products/services.png" alt="Explore Other Services" class="service-feature-img">
+          </a>
+      </div>
+    </section>
+
+
+    
+    <footer>
+      <div class="footer-nav">
+  
+        <div class="container">
+  
+  
+          <ul class="footer-nav-list">
+  
+            <li class="footer-nav-item">
+              <h2 class="nav-title">Contact</h2>
+            </li>
+  
+            <li class="footer-nav-item flex">
+              <div class="icon-box">
+                <ion-icon name="location-outline"></ion-icon>
+              </div>
+  
+              <address class="content">
+                Helsinki Malmikartanon
+              </address>
+            </li>
+  
+            <li class="footer-nav-item flex">
+              <div class="icon-box">
+                <ion-icon name="call-outline"></ion-icon>
+              </div>
+  
+              <a href="tel:+607936-8058" class="footer-nav-link">040 5390 711</a>
+            </li>
+  
+            <li class="footer-nav-item flex">
+              <div class="icon-box">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+  
+              <a href="mailto:example@gmail.com" class="footer-nav-link">eliyasson1199@gmail.com</a>
+            </li>
+  
+          </ul>
+  
+          <ul class="footer-nav-list">
+  
+            <li class="footer-nav-item">
+              <h2 class="nav-title">Follow Us</h2>
+            </li>
+  
+            <li>
+              <ul class="social-link">
+  
+                <li class="footer-nav-item">
+                  <a href="https://www.facebook.com/jesus.islord99/" class="footer-nav-link">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                  </a>
+                </li>
+  
+                <li class="footer-nav-item">
+                  <a href="#" class="footer-nav-link">
+                    <ion-icon name="logo-twitter"></ion-icon>
+                  </a>
+                </li>
+  
+                <li class="footer-nav-item">
+                  <a href="https://www.linkedin.com/in/eliyas-kassaye/" class="footer-nav-link">
+                    <ion-icon name="logo-linkedin"></ion-icon>
+                  </a>
+                </li>
+  
+                <li class="footer-nav-item">
+                  <a href="https://www.instagram.com/eliiyas_t?igsh=aXA2bGxkcmg4amt3" class="footer-nav-link">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                  </a>
+                </li>
+  
+              </ul>
+            </li>
+  
+          </ul>
+  
+        </div>
+  
+      </div>
+  
+      <div class="footer-bottom">
+  
+        <div class="container">
+  
+          
+  
+          <p class="copyright">
+            Copyright &copy; <a href="#">Eliyas</a> all rights reserved.
+          </p>
+  
+        </div>
+  
+      </div>
+  
+    </footer>
+
+    
+
+  <!--
+    - custom js link
+  -->
+  <script src="./assets/js/script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Mobile menu open and close functionality
+        const menuOpenButtons = document.querySelectorAll('[data-mobile-menu-open-btn]');
+        const menuCloseButton = document.querySelector('[data-mobile-menu-close-btn]');
+        const mobileMenu = document.querySelector('[data-mobile-menu]');
+
+        // Event listener to open the mobile menu
+        menuOpenButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+          });
+        });
+
+        // Event listener to close the mobile menu
+        if (menuCloseButton) {
+          menuCloseButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+          });
+        }
+
+        // Event listener for accordion items
+        const accordionButtons = document.querySelectorAll('[data-accordion-btn]');
+
+        accordionButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const submenu = button.nextElementSibling;
+
+            if (submenu && submenu.matches('[data-accordion]')) {
+              // Toggle submenu
+              submenu.classList.toggle('active');
+              
+              // Rotate caret icon
+              button.querySelector('.caret-back').classList.toggle('rotate');
+            }
+          });
+        });
+      });
+
+
+  </script>
+
+    <script>
+      // JavaScript to create typing effect
+      const text = "Welcome! What are you looking for?";
+      let i = 0;
+
+      function typeText() {
+          if (i < text.length) {
+              document.getElementById("typing-title").innerHTML += text.charAt(i);
+              i++;
+              setTimeout(typeText, 100); // Speed of typing effect
+          }
+      }
+
+      window.onload = function () {
+          typeText();
+      };
+  </script>
+
+</body>
+</html>
