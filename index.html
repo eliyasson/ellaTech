@@ -36,10 +36,114 @@
   <link rel="preload" as="image" href="./assets/images/hero-slider-1.jpg">
   <link rel="preload" as="image" href="./assets/images/hero-slider-2.jpg">
   <link rel="preload" as="image" href="./assets/images/hero-slider-3.jpg">
+  <style>
+    /* Modal container in the bottom corner */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1000; /* On top */
+      right: 20px;
+      bottom: 20px;
+      width: 300px;
+      background-color: rgba(127, 126, 126, 0.5); /* Black with opacity */
+      border-radius: 10px;
+      padding: 20px;
+      color: white;
+    }
+
+    /* Modal content */
+    .modal-content {
+      background-color: white;
+      color: black;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+
+    /* Form container hidden initially */
+    .form-content {
+      display: none;
+    }
+
+    /* Close button */
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: black;
+    }
+
+    /* Modal buttons */
+    .modal-button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color:#007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Textarea and Input styling */
+    textarea, input[type="email"] {
+      width: 90%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #218838;
+    }
+
+  </style>
 
 </head>
 
 <body id="top">
+
+     <!-- Bottom Corner Modal -->
+    <div id="businessModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Do you have a business idea or want to collaborate?</h2>
+        <button id="yesButton" class="modal-button">Yes, I have a business idea!</button>
+        <button id="noButton" class="modal-button">Not right now</button>
+      </div>
+
+      <!-- Form for collecting idea and email -->
+      <div id="ideaForm" class="modal-content form-content">
+        
+        <h3>Share your business idea with us!</h3>
+        <form id="businessIdeaForm">
+          <label for="idea">Your Business Idea:</label><br>
+          <textarea id="idea" name="idea" rows="4" cols="50" placeholder="Describe your idea here"></textarea><br>
+          <label for="email">Your Email:</label><br>
+          <input type="email" id="email" name="email" placeholder="Your email" required><br><br>
+          <button type="submit" class="modal-button">Submit</button>
+        </form>
+      </div>
+    </div>
 
   <!-- 
     - #PRELOADER
@@ -224,6 +328,7 @@
 
   <main>
     <article>
+   
 
       <!-- 
         - #HERO
@@ -313,7 +418,7 @@
         </button>
 
         <a href="#" class="hero-btn has-after">
-          <img src="../assets/images/logo/logo3.png" width="48" height="48" alt="booking icon">
+          <img src="../main/assets/images/logo/logo3.png" width="48" height="48" alt="booking icon">
 
           <span class="label-2 text-center span">Book A Service</span>
         </a>
@@ -621,6 +726,7 @@
     </div>
   </footer>
 
+  
 
 
 
@@ -647,6 +753,70 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- Include EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function() {
+    emailjs.init("service_395dvk8");  // Replace with your EmailJS user ID
+  })();
+</script>
+
+<script>
+  // Show modal after 30 seconds
+  setTimeout(function() {
+    var modal = document.getElementById("businessModal");
+    modal.style.display = "block";
+  }, 30000); // 30000 milliseconds = 30 seconds
+
+  // Close modal on click of close button
+  document.querySelector(".close").onclick = function() {
+    var modal = document.getElementById("businessModal");
+    modal.style.display = "none";
+  }
+
+  // Handling yes button click
+  document.getElementById("yesButton").onclick = function() {
+    document.querySelector(".modal-content").style.display = "none"; // Hide first part
+    document.getElementById("ideaForm").style.display = "block"; // Show form
+  };
+
+  // Handling no button click
+  document.getElementById("noButton").onclick = function() {
+    var modal = document.getElementById("businessModal");
+    modal.style.display = "none";
+  };
+
+  // Handling form submission
+  var businessForm = document.getElementById("businessIdeaForm");
+  businessForm.onsubmit = function(event) {
+    event.preventDefault(); // Prevent page reload
+
+    // Collect form data
+    var idea = document.getElementById("idea").value;
+    var email = document.getElementById("email").value;
+
+    if (idea && email) {
+      // Prepare the parameters to send via EmailJS
+      var templateParams = {
+        from_email: email,
+        business_idea: idea,
+      };
+
+      // Send the email using EmailJS
+      emailjs.send("service_395dvk8", "template_l0nddpt", templateParams) // Replace YOUR_TEMPLATE_ID with your actual EmailJS template ID
+        .then(function(response) {
+          alert("Thank you for sharing your idea! We'll get in touch with you at " + email);
+          // Close the modal after submission
+          var modal = document.getElementById("businessModal");
+          modal.style.display = "none";
+        }, function(error) {
+          alert("Oops! Something went wrong. Please try again.");
+        });
+    } else {
+      alert("Please fill out both fields.");
+    }
+  };
+</script>
 
 </body>
 

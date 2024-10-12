@@ -1524,7 +1524,7 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
 /* General Styling for Product Grid Section */
 .product-main {
   padding: 2rem;
-  background-color: #f9f9f9;
+  background-color: #1e1e1eba;
 }
 
 .title {
