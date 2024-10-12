@@ -7,99 +7,162 @@
   <title>EllaTech</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./assets/css/style-prefix.css">
+ 
   <link rel="stylesheet" href="moving.css">
   <link rel="shortcut icon" href="./assets/images/logo/ellaLogo.png" type="image">
-  
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function() {
+      emailjs.init("8rxVRFZlk_Wm4RUes"); // Replace with your EmailJS user ID
+    })();
+  </script>
+    <style>
+      /* Basic modal styles */
+      .modal {
+          display: none; 
+          position: fixed; 
+          z-index: 1000;
+          left: 0;
+          top: 0;
+          width: 100%; 
+          height: 100%; 
+          overflow: auto; /* Enable scroll if needed */
+          background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+          transition: opacity 0.3s ease; /* Smooth transition */
+      }
+
+      .modal-content {
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+          margin: 10% auto; 
+          padding: 20px;
+          width: 90%; 
+          max-width: 500px; 
+          position: relative;
+      }
+
+      .close {
+          color: #aaa;
+          float: right;
+          font-size: 28px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: color 0.2s; 
+      }
+
+      .close:hover {
+          color: #ff6347; 
+      }
+
+      h2 {
+          margin: 0 0 15px; 
+          color: #333; 
+      }
+
+      /* Form styles */
+      #contactForm {
+          display: flex;
+          flex-direction: column; /
+      }
+
+      input[type="text"],
+      input[type="tel"],
+      input[type="email"] {
+          padding: 10px;
+          margin: 10px 0; 
+          border: 1px solid #ccc;
+          border-radius: 5px; 
+          transition: border-color 0.2s; 
+      }
+
+      input[type="text"]:focus,
+      input[type="email"]:focus {
+          border-color: #ff6347; 
+          outline: none; 
+      }
+
+      button {
+          padding: 10px;
+          background-color: #ff6347; /* Button color */
+          color: white;
+          border: none;
+          border-radius: 5px;
+          font-size: 16px; /* Font size for button */
+          cursor: pointer;
+          transition: background-color 0.3s; /* Transition for background color */
+      }
+
+      button:hover {
+          background-color: #e5533d; /* Darker shade on hover */
+      }
+  </style>
 </head>
 
 <body>
   <header>
-
     <div class="mobile-bottom-navigation">
-
       <button class="action-btn" data-mobile-menu-open-btn>
         <ion-icon name="menu-outline"></ion-icon>
       </button>
-
       <button class="action-btn">
         <ion-icon name="bag-handle-outline"></ion-icon>
-
         <span class="count">0</span>
       </button>
-
       <button class="action-btn">
         <ion-icon name="home-outline"></ion-icon>
       </button>
-
       <button class="action-btn">
         <ion-icon name="heart-outline"></ion-icon>
-
         <span class="count">0</span>
       </button>
-
       <button class="action-btn" data-mobile-menu-open-btn>
         <ion-icon name="grid-outline"></ion-icon>
       </button>
-
     </div>
 
     <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu>
-
       <div class="menu-top">
         <h2 class="menu-title">Menu</h2>
-    
         <button class="menu-close-btn" data-mobile-menu-close-btn>
           <ion-icon name="close-outline"></ion-icon>
         </button>
       </div>
-    
       <ul class="mobile-menu-category-list">
-    
         <li class="menu-category">
           <a href="#" class="menu-title">Home</a>
         </li>
-    
         <li class="menu-category">
           <button class="accordion-menu" data-accordion-btn>
             <p class="menu-title">Laptops</p>
           </button>
         </li>
-    
         <li class="menu-category">
           <button class="accordion-menu" data-accordion-btn>
             <p class="menu-title">Monitor</p>
           </button>
         </li>
-    
         <li class="menu-category">
           <button class="accordion-menu" data-accordion-btn>
             <p class="menu-title">Maintenance</p>
           </button>
         </li>
-    
         <li class="menu-category">
           <button class="accordion-menu" data-accordion-btn>
             <p class="menu-title">Services</p>
           </button>
         </li>
-    
         <li class="menu-category">
           <a href="#" class="menu-title">Blog</a>
         </li>
-    
       </ul>
-    
       <div class="menu-bottom">
-    
         <ul class="menu-category-list">
-    
           <li class="menu-category">
             <button class="accordion-menu" data-accordion-btn>
               <p class="menu-title">Language</p>
               <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
             </button>
-    
             <ul class="submenu-category-list" data-accordion>
               <li class="submenu-category">
                 <a href="#" class="submenu-title">English</a>
@@ -112,13 +175,11 @@
               </li>
             </ul>
           </li>
-    
           <li class="menu-category">
             <button class="accordion-menu" data-accordion-btn>
               <p class="menu-title">Currency</p>
               <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
             </button>
-    
             <ul class="submenu-category-list" data-accordion>
               <li class="submenu-category">
                 <a href="#" class="submenu-title">EUR &euro;</a>
@@ -128,9 +189,7 @@
               </li>
             </ul>
           </li>
-    
         </ul>
-    
         <ul class="menu-social-container">
           <li>
             <a href="https://www.facebook.com/jesus.islord99/?locale=ms_MY" class="social-link">
@@ -148,40 +207,32 @@
             </a>
           </li>
         </ul>
-    
       </div>
-    
     </nav>
-    
-
   </header>
 
   <div class="header-main">
     <button class="back-button" onclick="window.history.back();">Back</button>
     <div class="header-logo">
-      <a href="index.html">
-        <img src="./assets/images/logo/logo.png" alt="Ella's logo" width="100" height="auto">
+      <a href="../index.html">
+        <img src="../main/assets/images/logo/logo.png" alt="Ella's logo" width="100" height="auto">
       </a>
     </div>
   </div>
 
-  <!-- Header -->
   <header>
     <h1>Ella Moving & Ride Services</h1>
     <p>Your reliable partner for every move in and around Helsinki</p>
   </header>
 
-  <!-- Hero Section -->
   <div class="hero-section">
     <h2>Effortless Moving, Anywhere, Anytime</h2>
   </div>
 
-  <!-- Service Section -->
   <div class="container">
     <section class="service-section">
-      <!-- Service Card Example -->
       <div class="service-card">
-        <img src="./assets/images/services/88.png" alt="Moving within Helsinki">
+        <img src="../main/assets/images/services/88.png" alt="Moving within Helsinki">
         <div class="service-card-content">
           <h3 class="service-card-title">Moving within Helsinki</h3>
           <p class="service-card-description">We offer a complete moving service across Helsinki for individuals, families, and businesses.</p>
@@ -189,18 +240,17 @@
         </div>
       </div>
 
-      <!-- Long Distance Moving -->
       <div class="service-card">
-        <img src="./assets/images/services/55.png" alt="Long Distance Moving">
+        <img src="../main/assets/images/services/55.png" alt="Long Distance Moving">
         <div class="service-card-content">
           <h3 class="service-card-title">Long Distance Moving</h3>
           <p class="service-card-description">Our long-distance moving services help you relocate smoothly from Helsinki to any city or vice versa.</p>
           <a href="#" class="service-card-link" onclick="showContactModal('Long Distance Moving')">Contact Us</a>
         </div>
       </div>
-      <!-- Ride Services from Helsinki -->
+
       <div class="service-card">
-        <img src="./assets/images/services/66.png" alt="Ride Services from Helsinki">
+        <img src="../main/assets/images/services/66.png" alt="Ride Services from Helsinki">
         <div class="service-card-content">
           <h3 class="service-card-title">Ride Services from Helsinki</h3>
           <p class="service-card-description">We provide ride services from Helsinki to any city in Finland, as well as return trips to Helsinki.</p>
@@ -208,9 +258,8 @@
         </div>
       </div>
 
-       <!-- Night Ride Service to Airport -->
-       <div class="service-card">
-        <img src="./assets/images/services/999.png" alt="Night Ride Service to Airport">
+      <div class="service-card">
+        <img src="../main/assets/images/services/999.png" alt="Night Ride Service to Airport">
         <div class="service-card-content">
           <h3 class="service-card-title">Night Ride Service to Airport</h3>
           <p class="service-card-description">We offer convenient night ride services to and from the airport, serving any city in Finland for your late-night travel needs.</p>
@@ -223,16 +272,20 @@
   <!-- Contact Modal -->
   <div id="contactModal" class="modal">
     <div class="modal-content">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2>Contact Us for More Information</h2>
-      <p><strong>Service Selected:</strong> <span id="serviceName"></span></p>
-      <p>Contact me on Instagram: <a href="https://www.instagram.com/eliiyas_t?igsh=aXA2bGxkcmg4amt3" target="_blank">@eliiyas_t</a></p>
-      <p>WhatsApp us at: <a href="https://wa.me/1234567890" target="_blank">+358405390711</a></p>
-      <p>Please take a screenshot of this page and send it to us on WhatsApp for a faster response.</p>
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>Contact Us About <span id="serviceName"></span></h2>
+        <form id="contactForm" onsubmit="submitContactForm(event)">
+
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+
+            <label for="phone">Your Phone Number (Optional):</label>
+            <input type="tel" id="phone" placeholder="Enter your phone number">
+            <button type="submit">Send</button>
+        </form>
     </div>
   </div>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-bottom">
       <div class="container">
@@ -243,71 +296,81 @@
     </div>
   </footer>
 
-
   <script src="./assets/js/script.js"></script>
-  <!--
-    - ionicon link
-  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  
   <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // Mobile menu open and close functionality
         const menuOpenButtons = document.querySelectorAll('[data-mobile-menu-open-btn]');
         const menuCloseButton = document.querySelector('[data-mobile-menu-close-btn]');
         const mobileMenu = document.querySelector('[data-mobile-menu]');
 
-        // Event listener to open the mobile menu
         menuOpenButtons.forEach(button => {
           button.addEventListener('click', () => {
             mobileMenu.classList.add('active');
           });
         });
 
-        // Event listener to close the mobile menu
         if (menuCloseButton) {
           menuCloseButton.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
           });
         }
 
-        // Event listener for accordion items
         const accordionButtons = document.querySelectorAll('[data-accordion-btn]');
-
         accordionButtons.forEach(button => {
           button.addEventListener('click', () => {
             const submenu = button.nextElementSibling;
-
             if (submenu && submenu.matches('[data-accordion]')) {
-              // Toggle submenu
               submenu.classList.toggle('active');
-              
-              // Rotate caret icon
               button.querySelector('.caret-back').classList.toggle('rotate');
             }
           });
         });
       });
 
-
-  </script>
-
-  <script>
-    function showContactModal(serviceName) {
-      document.getElementById('serviceName').textContent = serviceName;
-      document.getElementById('contactModal').style.display = 'block';
-    }
-
-    function closeModal() {
-      document.getElementById('contactModal').style.display = 'none';
-    }
-
-    window.onclick = function (event) {
-      let modal = document.getElementById('contactModal');
-      if (event.target == modal) {
-        modal.style.display = 'none';
+      function showContactModal(serviceName) {
+        document.getElementById('serviceName').textContent = serviceName;
+        document.getElementById('contactModal').style.display = 'block';
       }
-    }
+
+      function closeModal() {
+        document.getElementById('contactModal').style.display = 'none';
+        document.getElementById('contactForm').reset(); // Reset the form fields
+      }
+
+      function submitContactForm(event) {
+        event.preventDefault(); // Prevent default form submission
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const serviceName = document.getElementById('serviceName').textContent;
+        var phone = document.getElementById("phone").value;
+
+        // Send email using EmailJS
+        emailjs.send("service_395dvk8", "template_l0nddpt", {
+          name: name,
+          email: email,
+         
+          service: serviceName,
+          phone_number: phone
+        })
+        .then(function(response) {
+          console.log('SUCCESS!', response.status, response.text);
+          closeModal();
+          alert('Thank you for contacting us! We will get back to you soon.');
+        }, function(error) {
+          console.log('FAILED...', error);
+          alert('Oops! Something went wrong. Please try again later.');
+        });
+      }
+
+      window.onclick = function (event) {
+        let modal = document.getElementById('contactModal');
+        if (event.target == modal) {
+          closeModal();
+        }
+      }
   </script>
 
 </body>

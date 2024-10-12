@@ -122,28 +122,27 @@
 
 <body id="top">
 
-     <!-- Bottom Corner Modal -->
-    <div id="businessModal" class="modal">
-      <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Do you have a business idea or want to collaborate?</h2>
-        <button id="yesButton" class="modal-button">Yes, I have a business idea!</button>
-        <button id="noButton" class="modal-button">Not right now</button>
+        <!-- Bottom Corner Modal -->
+        <div id="businessModal" class="modal">
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <h2>Do you have a business idea or want to collaborate?</h2>
+              <button id="yesButton" class="modal-button">Yes, I have a business idea!</button>
+              <button id="noButton" class="modal-button">Not right now</button>
+          </div>
+  
+          <!-- Form for collecting idea and email -->
+          <div id="ideaForm" class="modal-content form-content">
+              <h3>Share your business idea with us!</h3>
+              <form id="businessIdeaForm">
+                  <label for="idea">Your Business Idea:</label><br>
+                  <textarea id="idea" name="idea" rows="4" cols="50" placeholder="Describe your idea here"></textarea><br>
+                  <label for="email">Your Email:</label><br>
+                  <input type="email" id="email" name="email" placeholder="Your email" required><br><br>
+                  <button type="submit" class="modal-button">Submit</button>
+              </form>
+          </div>
       </div>
-
-      <!-- Form for collecting idea and email -->
-      <div id="ideaForm" class="modal-content form-content">
-        
-        <h3>Share your business idea with us!</h3>
-        <form id="businessIdeaForm">
-          <label for="idea">Your Business Idea:</label><br>
-          <textarea id="idea" name="idea" rows="4" cols="50" placeholder="Describe your idea here"></textarea><br>
-          <label for="email">Your Email:</label><br>
-          <input type="email" id="email" name="email" placeholder="Your email" required><br><br>
-          <button type="submit" class="modal-button">Submit</button>
-        </form>
-      </div>
-    </div>
 
   <!-- 
     - #PRELOADER
@@ -472,7 +471,7 @@
             <li>
               <div class="service-card">
 
-                <a href="#" class="has-before hover:shine">
+                <a href="./moving/moving.html" class="has-before hover:shine">
                   <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
                     <img src="./assets/images/4.png" width="285" height="336" loading="lazy" alt="Appetizers"
                       class="img-cover">
@@ -753,70 +752,78 @@
   -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<!-- Include Ionicons -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <!-- Include EmailJS SDK -->
 <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script type="text/javascript">
-  (function() {
-    emailjs.init("service_395dvk8");  // Replace with your EmailJS user ID
-  })();
+    (function () {
+        emailjs.init("8rxVRFZlk_Wm4RUes");  // Initialize EmailJS with your user ID
+    })();
 </script>
 
 <script>
-  // Show modal after 30 seconds
-  setTimeout(function() {
-    var modal = document.getElementById("businessModal");
-    modal.style.display = "block";
-  }, 30000); // 30000 milliseconds = 30 seconds
+  // Show modal after 15 seconds
+  setTimeout(function () {
+      var modal = document.getElementById("businessModal");
+      modal.style.display = "block";
+  }, 15000);
 
   // Close modal on click of close button
-  document.querySelector(".close").onclick = function() {
-    var modal = document.getElementById("businessModal");
-    modal.style.display = "none";
-  }
+  document.querySelector(".close").onclick = function () {
+      var modal = document.getElementById("businessModal");
+      modal.style.display = "none";
+  };
 
   // Handling yes button click
-  document.getElementById("yesButton").onclick = function() {
-    document.querySelector(".modal-content").style.display = "none"; // Hide first part
-    document.getElementById("ideaForm").style.display = "block"; // Show form
+  document.getElementById("yesButton").onclick = function () {
+      document.querySelector(".modal-content").style.display = "none"; // Hide first part
+      document.getElementById("ideaForm").style.display = "block"; // Show form
   };
 
   // Handling no button click
-  document.getElementById("noButton").onclick = function() {
-    var modal = document.getElementById("businessModal");
-    modal.style.display = "none";
+  document.getElementById("noButton").onclick = function () {
+      var modal = document.getElementById("businessModal");
+      modal.style.display = "none";
   };
 
   // Handling form submission
   var businessForm = document.getElementById("businessIdeaForm");
-  businessForm.onsubmit = function(event) {
-    event.preventDefault(); // Prevent page reload
+  businessForm.onsubmit = function (event) {
+      event.preventDefault(); // Prevent page reload
 
-    // Collect form data
-    var idea = document.getElementById("idea").value;
-    var email = document.getElementById("email").value;
+      // Collect form data
+      var idea = document.getElementById("idea").value;
+      var email = document.getElementById("email").value;
 
-    if (idea && email) {
-      // Prepare the parameters to send via EmailJS
-      var templateParams = {
-        from_email: email,
-        business_idea: idea,
-      };
+      // Check if idea and email are provided
+      if (idea && email) {
+      
 
-      // Send the email using EmailJS
-      emailjs.send("service_395dvk8", "template_l0nddpt", templateParams) // Replace YOUR_TEMPLATE_ID with your actual EmailJS template ID
-        .then(function(response) {
-          alert("Thank you for sharing your idea! We'll get in touch with you at " + email);
-          // Close the modal after submission
-          var modal = document.getElementById("businessModal");
-          modal.style.display = "none";
-        }, function(error) {
-          alert("Oops! Something went wrong. Please try again.");
-        });
-    } else {
-      alert("Please fill out both fields.");
-    }
+          // Prepare the parameters to send via EmailJS
+          var templateParams = {
+              from_email: email,
+              business_idea: idea,
+          };
+
+          // Send the email using EmailJS
+          emailjs.send("service_395dvk8", "template_7xdlfar", templateParams)
+          .then(function (response) {
+              alert("Thank you for sharing your idea! We'll get in touch with you at " + email);
+              var modal = document.getElementById("businessModal");
+              modal.style.display = "none";
+          }, function (error) {
+              console.error("EmailJS Error:", error); // Log the error to the console
+              alert("Oops! Something went wrong. Please try again.");
+          });
+      } else {
+          alert("Please fill out both fields.");
+      }
   };
 </script>
+
 
 </body>
 
