@@ -3,22 +3,121 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- 
+    - primary meta tags
+  -->
   <title>EllaTech</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
- 
+  <meta name="title" content="Grilli - Amazing & Delicious Food">
+  <meta name="description" content="This is a Restaurant html template made by codewithsadee">
+
+  <!-- 
+    - favicon
+  -->
+  <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+
+  <!-- 
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Forum&display=swap" rel="stylesheet">
+
+  <!-- 
+    - custom css link
+  -->
   <link rel="stylesheet" href="moving.css">
-  <link rel="shortcut icon" href="./assets/images/logo/ellaLogo.png" type="image">
-  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-  <script>
-    (function() {
-      emailjs.init("8rxVRFZlk_Wm4RUes"); // Replace with your EmailJS user ID
-    })();
-  </script>
-    <style>
-      /* Basic modal styles */
-      .modal {
+
+  <!-- 
+    - preload images
+  -->
+  <link rel="preload" as="image" href="./assets/images/hero-slider-1.jpg">
+  <link rel="preload" as="image" href="./assets/images/hero-slider-2.jpg">
+  <link rel="preload" as="image" href="./assets/images/hero-slider-3.jpg">
+  <style>
+    /* Modal container in the bottom corner */
+    .modal2 {
+      display: none; /* Hidden by default */
+      position: fixed;
+      z-index: 1000; /* On top */
+      right: 20px;
+      bottom: 20px;
+      width: 300px;
+      background-color: rgba(127, 126, 126, 0.5); /* Black with opacity */
+      border-radius: 10px;
+      padding: 20px;
+      color: white;
+    }
+
+    /* Modal content */
+    .modal-content2 {
+      background-color: white;
+      color: black;
+      padding: 10px;
+      border-radius: 10px;
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 12px;
+    }
+
+    /* Form container hidden initially */
+    .form-content2 {
+      display: none;
+    }
+
+    /* Close button */
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: black;
+    }
+
+    /* Modal buttons */
+    .modal2-button {
+      margin-top: 10px;
+      padding: 8px 15px;
+      background-color:#007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .modal2-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* Textarea and Input styling */
+    textarea, input[type="email"] {
+      width: 90%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #218838;
+    }
+    
+/* Basic modal styles */
+.modal {
           display: none; 
           position: fixed; 
           z-index: 1000;
@@ -97,180 +196,409 @@
           background-color: #e5533d; /* Darker shade on hover */
       }
   </style>
+
 </head>
 
-<body>
-  <header>
-    <div class="mobile-bottom-navigation">
-      <button class="action-btn" data-mobile-menu-open-btn>
-        <ion-icon name="menu-outline"></ion-icon>
-      </button>
-      <button class="action-btn">
-        <ion-icon name="bag-handle-outline"></ion-icon>
-        <span class="count">0</span>
-      </button>
-      <button class="action-btn">
-        <ion-icon name="home-outline"></ion-icon>
-      </button>
-      <button class="action-btn">
-        <ion-icon name="heart-outline"></ion-icon>
-        <span class="count">0</span>
-      </button>
-      <button class="action-btn" data-mobile-menu-open-btn>
-        <ion-icon name="grid-outline"></ion-icon>
-      </button>
-    </div>
+<body id="top">
 
-    <nav class="mobile-navigation-menu has-scrollbar" data-mobile-menu>
-      <div class="menu-top">
-        <h2 class="menu-title">Menu</h2>
-        <button class="menu-close-btn" data-mobile-menu-close-btn>
-          <ion-icon name="close-outline"></ion-icon>
-        </button>
+        <!-- Bottom Corner Modal -->
+        <div id="businessModal" class="modal2">
+          <div class="modal-content2">
+              <span class="close">&times;</span>
+              <h2>Do you have a business idea or want to collaborate?</h2>
+              <button id="yesButton" class="modal2-button">Yes, I have a business idea!</button>
+              <button id="noButton" class="modal2-button">Not right now</button>
+          </div>
+  
+          <!-- Form for collecting idea and email -->
+          <div id="ideaForm" class="modal-content2 form-content2">
+              <h3>Share your business idea with us!</h3>
+              <form id="businessIdeaForm">
+                  <label for="idea">Your Business Idea:</label><br>
+                  <textarea id="idea" name="idea" rows="4" cols="50" placeholder="Describe your idea here"></textarea><br>
+                  <label for="email">Your Email:</label><br>
+                  <input type="email" id="email" name="email" placeholder="Your email" required><br><br>
+                  <button type="submit" class="modal2-button">Submit</button>
+              </form>
+          </div>
       </div>
-      <ul class="mobile-menu-category-list">
-        <li class="menu-category">
-          <a href="#" class="menu-title">Home</a>
-        </li>
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Laptops</p>
-          </button>
-        </li>
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Monitor</p>
-          </button>
-        </li>
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Maintenance</p>
-          </button>
-        </li>
-        <li class="menu-category">
-          <button class="accordion-menu" data-accordion-btn>
-            <p class="menu-title">Services</p>
-          </button>
-        </li>
-        <li class="menu-category">
-          <a href="#" class="menu-title">Blog</a>
-        </li>
-      </ul>
-      <div class="menu-bottom">
-        <ul class="menu-category-list">
-          <li class="menu-category">
-            <button class="accordion-menu" data-accordion-btn>
-              <p class="menu-title">Language</p>
-              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
-            </button>
-            <ul class="submenu-category-list" data-accordion>
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">English</a>
-              </li>
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">Finnish</a>
-              </li>
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">አማርኛ</a>
-              </li>
-            </ul>
-          </li>
-          <li class="menu-category">
-            <button class="accordion-menu" data-accordion-btn>
-              <p class="menu-title">Currency</p>
-              <ion-icon name="caret-back-outline" class="caret-back"></ion-icon>
-            </button>
-            <ul class="submenu-category-list" data-accordion>
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">EUR &euro;</a>
-              </li>
-              <li class="submenu-category">
-                <a href="#" class="submenu-title">USD &dollar;</a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-        <ul class="menu-social-container">
-          <li>
-            <a href="https://www.facebook.com/jesus.islord99/?locale=ms_MY" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.instagram.com/eliiyas_t?igsh=aXA2bGxkcmg4amt3" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-          <li>
-            <a href="https://www.linkedin.com/in/eliyas-kassaye/" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
 
-  <div class="header-main">
-    <button class="back-button" onclick="window.history.back();">Back</button>
-    <div class="header-logo">
-      <a href="../index.html">
-        <img src="../main/assets/images/logo/logo.png" alt="Ella's logo" width="100" height="auto">
+  <!-- 
+    - #PRELOADER
+  -->
+
+  <div class="preload" data-preaload>
+    <div class="circle"></div>
+    <p class="text">EllaTech</p>
+  </div>
+
+
+
+
+
+  <!-- 
+    - #TOP BAR
+  -->
+
+  <div class="topbar">
+    <div class="container">
+
+      <address class="topbar-item">
+        <div class="icon">
+          <ion-icon name="location-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">
+          Helsinki
+        </span>
+      </address>
+
+      <div class="separator"></div>
+
+      <div class="topbar-item item-2">
+        <div class="icon">
+          <ion-icon name="time-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">24/7</span>
+      </div>
+
+      <a href="tel:+3583405390711" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="call-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">0405390711</span>
       </a>
+
+      <div class="separator"></div>
+
+      <a href="eliyasson1199@gmail.com" class="topbar-item link">
+        <div class="icon">
+          <ion-icon name="mail-outline" aria-hidden="true"></ion-icon>
+        </div>
+
+        <span class="span">eliyasson1199@gmail.com</span>
+      </a>
+
     </div>
   </div>
 
-  <header>
-    <h1>Ella Moving & Ride Services</h1>
-    <p>Your reliable partner for every move in and around Helsinki</p>
+
+
+
+
+  <!-- 
+    - #HEADER
+  -->
+
+  <header class="header" data-header>
+    <div class="container">
+
+      <a href="../index.html" class="logo">
+        <img src="../main/assets/images/logo/logo2.png" width="160" height="50" alt="ella Logo">
+      </a>
+
+      <nav class="navbar" data-navbar>
+
+        <button class="close-btn" aria-label="close menu" data-nav-toggler>
+          <ion-icon name="close-outline" aria-hidden="true"></ion-icon>
+        </button>
+
+        <a href="../index.html" class="logo">
+          <img src="../main/assets/images/logo/ellaLogo2.png" width="160" height="50" alt="ella - Home">
+        </a>
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <a href="../index.html" class="navbar-link hover-underline active">
+              <div class="separator"></div>
+
+              <span class="span">Home</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="../main/main.html" class="navbar-link hover-underline">
+              <div class="separator"></div>
+
+              <span class="span">Laptops</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#about" class="navbar-link hover-underline">
+              <div class="separator"></div>
+
+              <span class="span">Moving service</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link hover-underline">
+              <div class="separator"></div>
+
+              <span class="span">Driving lesson</span>
+            </a>
+          </li>
+          <li class="navbar-item">
+            <a href="#" class="navbar-link hover-underline">
+              <div class="separator"></div>
+
+              <span class="span">Traditional Wear</span>
+            </a>
+          </li>
+
+          <li class="navbar-item">
+            <a href="#" class="navbar-link hover-underline">
+              <div class="separator"></div>
+
+              <span class="span">Ethiopian Coffee</span>
+            </a>
+          </li>
+
+        </ul>
+
+        <div class="text-center">
+          <p class="headline-1 navbar-title">Visit Us</p>
+
+          <address class="body-4">
+            Finland <br>
+            Helsinki
+          </address>
+
+          <p class="body-4 navbar-text">Open: 24/7</p>
+          <a href="mailto:booking@grilli.com" class="body-4 sidebar-link">eliyasson1199@gmail.com</a>
+          <div class="separator"></div>
+          <p class="contact-label">Contact</p>
+          <a href="tel:+88123123456" class="body-1 contact-number hover-underline">
+            0405390711
+          </a>
+        </div>
+
+      </nav>
+
+      <a href="#" class="btn btn-secondary">
+        <span class="text text-1">>Want to Buy Laptops</span>
+
+        <span class="text text-2" aria-hidden="true">>Want to Buy Laptops</span>
+      </a>
+
+      <button class="nav-open-btn" aria-label="open menu" data-nav-toggler>
+        <span class="line line-1"></span>
+        <span class="line line-2"></span>
+        <span class="line line-3"></span>
+      </button>
+
+      <div class="overlay" data-nav-toggler data-overlay></div>
+
+    </div>
   </header>
 
-  <div class="hero-section">
-    <h2>Effortless Moving, Anywhere, Anytime</h2>
-  </div>
 
-  <div class="container">
-    <section class="service-section">
-      <div class="service-card">
-        <img src="../main/assets/images/services/88.png" alt="Moving within Helsinki">
-        <div class="service-card-content">
-          <h3 class="service-card-title">Moving within Helsinki</h3>
-          <p class="service-card-description">We offer a complete moving service across Helsinki for individuals, families, and businesses.</p>
-          <a href="#" class="service-card-link" onclick="showContactModal('Moving within Helsinki')">Contact Us</a>
+
+
+
+  <main>
+    <article>
+   
+
+      <!-- 
+        - #HERO
+      -->
+
+      <section class="hero text-center" aria-label="home" id="home">
+
+        <ul class="hero-slider" data-hero-slider>
+
+          <li class="slider-item active" data-hero-slider-item>
+
+            <div class="slider-bg">
+              <img src="../assets/images/011.png" width="1880" height="950" alt="" class="img-cover">
+            </div>
+
+            
+
+          </li>
+
+
+        </ul>
+
+       
+
+      </section>
+
+
+
+
+      <!-- 
+        - #SERVICE
+      -->
+
+      <section class="section service bg-black-10 text-center" aria-label="service">
+        <div class="container">
+
+          <p class="section-subtitle label-2">Effortless Moving, Anywhere, Anytime</p>
+
+          <h2 class="headline-1 section-title">We Offer </h2>
+
+          <ul class="grid-list">
+
+            <li>
+              <div class="service-card">
+
+                <a href="./main/main.html" class="has-before hover:shine">
+                  <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
+                    <img src="../assets/images/333.png" width="285" height="336" loading="lazy" alt="Breakfast"
+                      class="img-cover">
+                  </figure>
+                </a>
+
+                <div class="card-content">
+
+                  <h3 class="title-4 card-title">
+                    <a href="#">Moving within Helsinki</a>
+                  </h3>
+
+                  <a href="#" class="btn-text hover-underline label-2">We offer a complete moving service across Helsinki for individuals, families, and businesses.</a>
+                  <a href="#" class="title-4 card-title" onclick="showContactModal('Moving within Helsinki')">BOOK NOW</a>
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <a href="./moving/moving.html" class="has-before hover:shine">
+                  <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
+                    <img src="../assets/images/555.png" width="285" height="336" loading="lazy" alt="Appetizers"
+                      class="img-cover">
+                  </figure>
+                </a>
+
+                <div class="card-content">
+
+                  <h3 class="title-4 card-title">
+                    <a href="#">Long Distance Moving</a>
+                  </h3>
+
+                  <a href="#" class="btn-text hover-underline label-2">Our long-distance moving services help you relocate smoothly from Helsinki to any city or vice versa.</a>
+                  <a href="#" class="title-4 card-title " onclick="showContactModal('Long Distance Moving')">BOOK NOW</a>
+                
+
+                </div>
+
+              </div>
+            </li>
+
+            <li>
+              <div class="service-card">
+
+                <a href="#" class="has-before hover:shine">
+                  <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
+                    <img src="../assets/images/444.png" width="285" height="336" loading="lazy" alt="Drinks"
+                      class="img-cover">
+                  </figure>
+                </a>
+
+                <div class="card-content">
+
+                  <h3 class="title-4 card-title">
+                    <a href="#">Ride Services from Helsinki</a>
+                  </h3>
+
+                  <a href="#" class="btn-text hover-underline label-2">We provide ride services from Helsinki to any city in Finland, as well as return trips to Helsinki.</a>
+                  <a href="#" class="title-4 card-title "onclick="showContactModal('Ride Services from Helsinki')">BOOK NOW</a>
+
+                </div>
+
+              </div>
+            </li>
+
+
+            <li>
+              <div class="service-card">
+
+                <a href="#" class="has-before hover:shine">
+                  <figure class="card-banner img-holder" style="--width: 285; --height: 336;">
+                    <img src="../assets/images/777.png" width="285" height="336" loading="lazy" alt="Drinks"
+                      class="img-cover">
+                  </figure>
+                </a>
+
+                <div class="card-content">
+
+                  <h3 class="title-4 card-title">
+                    <a href="#">Night Ride Service to Airport</a>
+                  </h3>
+
+                 
+                  <a href="#" class="btn-text hover-underline label-2">We offer convenient night ride services to and from the airport, serving any city in Finland for your late-night travel needs.</a>
+                  <a href="#" class="title-4 card-title " onclick="showContactModal('Night Ride Service to Airport')">BOOK NOW</a>
+
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+
         </div>
+      </section>
+
+
+
+
+
+
+
+
+    </article>
+  </main>
+
+
+
+
+
+  <!-- 
+    - #FOOTER
+  -->
+
+  <footer class="footer section has-bg-image text-center"
+    style="background-image: url('../assets/images/footer-bg5.png')">
+    <div class="container">
+
+      <div class="footer-bottom">
+
+        <p class="copyright">
+          &copy; 2022 EllaTech. All Rights Reserved
+        </p>
+
       </div>
 
-      <div class="service-card">
-        <img src="../main/assets/images/services/55.png" alt="Long Distance Moving">
-        <div class="service-card-content">
-          <h3 class="service-card-title">Long Distance Moving</h3>
-          <p class="service-card-description">Our long-distance moving services help you relocate smoothly from Helsinki to any city or vice versa.</p>
-          <a href="#" class="service-card-link" onclick="showContactModal('Long Distance Moving')">Contact Us</a>
-        </div>
-      </div>
+    </div>
+  </footer>
 
-      <div class="service-card">
-        <img src="../main/assets/images/services/66.png" alt="Ride Services from Helsinki">
-        <div class="service-card-content">
-          <h3 class="service-card-title">Ride Services from Helsinki</h3>
-          <p class="service-card-description">We provide ride services from Helsinki to any city in Finland, as well as return trips to Helsinki.</p>
-          <a href="#" class="service-card-link" onclick="showContactModal('Ride Services from Helsinki')">Contact Us</a>
-        </div>
-      </div>
+  
 
-      <div class="service-card">
-        <img src="../main/assets/images/services/999.png" alt="Night Ride Service to Airport">
-        <div class="service-card-content">
-          <h3 class="service-card-title">Night Ride Service to Airport</h3>
-          <p class="service-card-description">We offer convenient night ride services to and from the airport, serving any city in Finland for your late-night travel needs.</p>
-          <a href="#" class="service-card-link" onclick="showContactModal('Night Ride Service to Airport')">Contact Us</a>
-        </div>
-      </div>
-    </section>
-  </div>
 
-  <!-- Contact Modal -->
-  <div id="contactModal" class="modal">
+
+
+  <!-- 
+    - #BACK TO TOP
+  -->
+
+  <a href="#top" class="back-top-btn active" aria-label="back to top" data-back-top-btn>
+    <ion-icon name="chevron-up" aria-hidden="true"></ion-icon>
+  </a>
+
+
+   <!-- Contact Modal -->
+   <div id="contactModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
         <h2>Contact Us About <span id="serviceName"></span></h2>
@@ -278,7 +606,6 @@
 
             <input type="text" id="name" placeholder="Your Name" required>
             <input type="email" id="email" placeholder="Your Email" required>
-
             <label for="phone">Your Phone Number (Optional):</label>
             <input type="tel" id="phone" placeholder="Enter your phone number">
             <button type="submit">Send</button>
@@ -286,18 +613,91 @@
     </div>
   </div>
 
-  <footer>
-    <div class="footer-bottom">
-      <div class="container">
-        <p class="copyright">
-          Copyright &copy; <a href="#">Eliyas</a> all rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
 
-  <script src="./assets/js/script.js"></script>
+
+  <!-- 
+    - custom js link
+  -->
+  <script src="../assets/js/script.js"></script>
+
+  <!-- 
+    - ionicon link
+  -->
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+<!-- Include Ionicons -->
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<!-- Include EmailJS SDK -->
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+    (function () {
+        emailjs.init("8rxVRFZlk_Wm4RUes");  // Initialize EmailJS with your user ID
+    })();
+</script>
+
+<script>
+  // Show modal after 15 seconds
+  setTimeout(function () {
+      var modal = document.getElementById("businessModal");
+      modal.style.display = "block";
+  }, 15000);
+
+  // Close modal on click of close button
+  document.querySelector(".close").onclick = function () {
+      var modal = document.getElementById("businessModal");
+      modal.style.display = "none";
+  };
+
+  // Handling yes button click
+  document.getElementById("yesButton").onclick = function () {
+      document.querySelector(".modal-content").style.display = "none"; // Hide first part
+      document.getElementById("ideaForm").style.display = "block"; // Show form
+  };
+
+  // Handling no button click
+  document.getElementById("noButton").onclick = function () {
+      var modal = document.getElementById("businessModal");
+      modal.style.display = "none";
+  };
+
+  // Handling form submission
+  var businessForm = document.getElementById("businessIdeaForm");
+  businessForm.onsubmit = function (event) {
+      event.preventDefault(); // Prevent page reload
+
+      // Collect form data
+      var idea = document.getElementById("idea").value;
+      var email = document.getElementById("email").value;
+
+      // Check if idea and email are provided
+      if (idea && email) {
+      
+
+          // Prepare the parameters to send via EmailJS
+          var templateParams = {
+              from_email: email,
+              business_idea: idea,
+          };
+
+          // Send the email using EmailJS
+          emailjs.send("service_395dvk8", "template_7xdlfar", templateParams)
+          .then(function (response) {
+              alert("Thank you for sharing your idea! We'll get in touch with you at " + email);
+              var modal = document.getElementById("businessModal");
+              modal.style.display = "none";
+          }, function (error) {
+              console.error("EmailJS Error:", error); // Log the error to the console
+              alert("Oops! Something went wrong. Please try again.");
+          });
+      } else {
+          alert("Please fill out both fields.");
+      }
+  };
+</script>
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   
   <script>
@@ -350,8 +750,7 @@
         // Send email using EmailJS
         emailjs.send("service_395dvk8", "template_l0nddpt", {
           name: name,
-          email: email,
-         
+          email: email,  
           service: serviceName,
           phone_number: phone
         })
@@ -372,6 +771,8 @@
         }
       }
   </script>
+
+
 
 </body>
 
