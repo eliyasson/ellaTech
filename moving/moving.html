@@ -336,14 +336,14 @@
           </li>
 
           <li class="navbar-item">
-            <a href="#" class="navbar-link hover-underline">
+            <a href="../moving/moving.html" class="navbar-link hover-underline">
               <div class="separator"></div>
 
               <span class="span">Driving lesson</span>
             </a>
           </li>
           <li class="navbar-item">
-            <a href="#" class="navbar-link hover-underline">
+            <a href="../fashion/fashion.html" class="navbar-link hover-underline">
               <div class="separator"></div>
 
               <span class="span">Traditional Wear</span>
@@ -605,7 +605,10 @@
         <form id="contactForm" onsubmit="submitContactForm(event)">
 
             <input type="text" id="name" placeholder="Your Name" required>
-            <input type="email" id="email" placeholder="Your Email" required>
+          <!--   <input type="email" id="email" placeholder="Your Email" required> -->
+        
+            <input type="email" id="phone" placeholder="Your Email">
+            
             <label for="phone">Your Phone Number (Optional):</label>
             <input type="tel" id="phone" placeholder="Enter your phone number">
             <button type="submit">Send</button>
@@ -750,8 +753,9 @@
         // Send email using EmailJS
         emailjs.send("service_395dvk8", "template_l0nddpt", {
           name: name,
-          email: email,  
+          
           service: serviceName,
+          phone_number: phone,
           phone_number: phone
         })
         .then(function(response) {
